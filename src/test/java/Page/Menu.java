@@ -40,38 +40,38 @@ public class Menu {
     }
 
     @Step(value = "Click on menu")
-    public void menuButton(){
+    public void clickMenuButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(menu)).click();
     }
 
     @Step(value = "Click on aeroporty")
-    public void aeroportyButton(){
+    public void clickAeroportyButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(aeroporty)).click();
         wait.until(ExpectedConditions.urlContains("https://airlines.aero/aeroporty/"));
     }
 
     @Step(value = "Click on aircompany")
-    public void aircompanyButton(){
+    public void clickAircompanyButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(aircompany)).click();
         wait.until(ExpectedConditions.urlContains("https://airlines.aero/aircompany/"));
     }
     @Step(value = "Click on bagaz")
-    public void bagazButton(){
+    public void clickBagazButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(bagaz)).click();
         wait.until(ExpectedConditions.urlContains("https://airlines.aero/category/bagaz/"));
     }
     @Step(value = "Click on news")
-    public void newsButton(){
+    public void clickNewsButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(news)).click();
         wait.until(ExpectedConditions.urlContains("https://airlines.aero/category/news/"));
     }
     @Step(value = "Click on transfer")
-    public void transferButton(){
+    public void clickTransferButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(transfer)).click();
 
@@ -81,7 +81,7 @@ public class Menu {
 
     }
     @Step(value = "Click on tours")
-    public void toursButton(){
+    public void clickToursButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(tours)).click();
 
@@ -90,13 +90,13 @@ public class Menu {
         wait.until(ExpectedConditions.urlContains("https://airlines.travelata.ru/"));
     }
     @Step(value = "Click on reviews")
-    public void reviewsButton(){
+    public void clickReviewsButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(reviews)).click();
         wait.until(ExpectedConditions.urlContains("https://airlines.aero/reviews/"));
     }
     @Step(value = "Click on hotel")
-    public void hotelButton(){
+    public void clickHotelButton(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(hotel)).click();
 

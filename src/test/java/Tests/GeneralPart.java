@@ -4,9 +4,6 @@ import Page.BookingPage;
 import Page.MainPage;
 import Page.ResultPage;
 import org.testng.Assert;
-import test.v6.B;
-
-import java.awt.image.RescaleOp;
 
 public class GeneralPart extends WebDriverSettings {
      MainPage mainPage = new MainPage(driver);
@@ -35,7 +32,7 @@ public class GeneralPart extends WebDriverSettings {
         bookingPage.setGender();
         bookingPage.clickCheckMark();
 
-        Assert.assertTrue(bookingPage.additionalElements());
+        Assert.assertTrue(bookingPage.loadingAdditionalElements());
         bookingPage.clickBookingButton();
     }
 }

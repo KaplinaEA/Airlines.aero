@@ -6,9 +6,6 @@ import Page.MainPage;
 import Page.Menu;
 import Page.ResultPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -34,24 +31,24 @@ public class CriticalTest extends WebDriverSettings {
     }
 
    @Test
-    public void c1(){
-        mainPage.logoButton();
-        mainPage.successfulLoading();
+    public void clickLogoOnMainPage(){
+        mainPage.clickLogoButton();
+        mainPage.loadingPageSuccessful();
     }
     @Test(dataProvider = "Data-Main-Page")
-    public void c2(String c1, String c2, String d1, String d2){
+    public void clickLogoOnResultPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
 
-        resultPage.logoButton();
-        mainPage.successfulLoading();
+        resultPage.clickLogoButton();
+        mainPage.loadingPageSuccessful();
     }
     @Test(dataProvider = "Data-Main-Page")
-    public void c3(String c1, String c2, String d1, String d2){
+    public void clickLogoOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
 
-        bookingPage.logoButton();
-        mainPage.successfulLoading();
+        bookingPage.clickLogoButton();
+        mainPage.loadingPageSuccessful();
     }
     @DataProvider(name = "Data-Main-Page")
     public  static Object[][] dataForMainPage (){
@@ -63,65 +60,65 @@ public class CriticalTest extends WebDriverSettings {
 
 
     @Test
-    public void c4(){
-        menu.menuButton();
-        menu.aircompanyButton();
+    public void openMenuAndSelectAircompany(){
+        menu.clickMenuButton();
+        menu.clickAircompanyButton();
     }
     @Test
-    public void c5(){
-        menu.menuButton();
-        menu.aeroportyButton();
+    public void openMenuAndSelectAeroporty(){
+        menu.clickMenuButton();
+        menu.clickAeroportyButton();
     }
     @Test
-    public void c6(){
-        menu.menuButton();
-        menu.bagazButton();
+    public void openMenuAndSelectBagaz(){
+        menu.clickMenuButton();
+        menu.clickBagazButton();
     }
     @Test
-    public void c7(){
-        menu.menuButton();
-        menu.newsButton();
+    public void openMenuAndSelectNews(){
+        menu.clickMenuButton();
+        menu.clickNewsButton();
     }
     @Test
-    public void c8(){
-        menu.menuButton();
-        menu.transferButton();
+    public void openMenuAndSelectTransfer(){
+        menu.clickMenuButton();
+        menu.clickTransferButton();
     }
     @Test
-    public void c9(){
-        menu.menuButton();
-        menu.toursButton();
+    public void openMenuAndSelectTours(){
+        menu.clickMenuButton();
+        menu.clickToursButton();
     }
     @Test
-    public void c10(){
-        menu.menuButton();
-        menu.reviewsButton();
+    public void openMenuAndSelectReviews(){
+        menu.clickMenuButton();
+        menu.clickReviewsButton();
     }
     @Test
-    public void c11(){
-        menu.menuButton();
-        menu.hotelButton();
+    public void openMenuAndSelectHotel(){
+        menu.clickMenuButton();
+        menu.clickHotelButton();
     }
 
 
     @Test(dataProvider = "Data-Main-Page")
-    public void c18(String c1, String c2, String d1, String d2){
+    public void checkMarkWithoutFillFieldsOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
 
         bookingPage.clickCheckMark();
-        bookingPage.message();
+        bookingPage.visibleMessage();
 
     }
     @Test(dataProvider = "Data-Main-Page")
-    public void c20(String c1, String c2, String d1, String d2){
+    public void clickLinkTariffRulesOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
 
         Assert.assertEquals(bookingPage.fareRules(), "Правила тарифа");
     }
     @Test(dataProvider = "Data-Main-Page")
-    public void c21(String c1, String c2, String d1, String d2){
+    public void clickLinkRulesUseWebsiteOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
 
@@ -129,59 +126,59 @@ public class CriticalTest extends WebDriverSettings {
 
     }
     @Test
-    public  void c22(){
-        mainPage.contactButton();
+    public  void findTelephoneNumberOnContactsPage(){
+        mainPage.clickContactButton();
         driver.findElement(By.xpath("//p[contains(text(), '+7(495) 970-17-17')]"));
     }
     @Test
-    public  void c23(){
-        mainPage.contactButton();
+    public  void findEmailOnContactsPage(){
+        mainPage.clickContactButton();
         driver.findElement(By.xpath("//p[contains(text(), 'info@airlines.aero')]"));
     }
 
     @Test
-    public void c12(){
+    public void enterOneLetterInSenderCity(){
         mainPage.setCity1("А");
-        mainPage.listDepartureCities();
+        mainPage.visibleListDepartureCities();
     }
     @Test
-    public void c13(){
+    public void enterOneLetterInArrivalCity(){
         mainPage.setCity2("А");
-        mainPage.listDepartureCities();
+        mainPage.visibleListDepartureCities();
     }
         @Test
-    public void c14(){
+    public void standOnFieldDateThither(){
         mainPage.setData1("");
-        mainPage.calendar();
+        mainPage.visibleCalendar();
     }
     @Test
-    public void c15(){
+    public void standOnFieldDateBackward(){
         mainPage.setData2("");
-        mainPage.calendar();
+        mainPage.visibleCalendar();
     }
 
     @Test(dataProvider = "Data-Main-Page")
-    public void c19(String c1, String c2, String d1, String d2){
+    public void EnterFieldDocumentNumberOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
-        bookingPage.successfulLoading();
+        bookingPage.loadingPageSuccessful();
 
-        bookingPage.passportMessage();
+        bookingPage.receivePassportMessage();
     }
 
     @Test(dataProvider = "Data-Main-Page")
-    public void c17(String c1, String c2, String d1, String d2){
+    public void goToPaymentWithoutFillingInFieldsOnBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
-        bookingPage.successfulLoading();
+        bookingPage.loadingPageSuccessful();
 
-        bookingPage.passengerDataMessage();
+        bookingPage.receivePassengerDataMessage();
     }
 
     @Test(dataProvider = "Data-Main-Page")
-    public void c16(String c1, String c2, String d1, String d2){
+    public void changeFilterOnResultsPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
-        resultPage.filter();
+        resultPage.changeFilter();
     }
 }
 

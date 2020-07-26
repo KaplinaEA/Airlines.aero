@@ -30,11 +30,11 @@ public class SmokeTest extends WebDriverSettings {
 
 
     @Test(dataProvider = "Data-Main-Page")
-    public void s1(String c1, String c2, String d1, String d2){
+    public void fillSearchFieldsAndStart(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
 
-        if(!mainPage.notFound())
-            Assert.assertTrue(resultPage.successfulLoading());
+        if(!mainPage.notFoundResults())
+            Assert.assertTrue(resultPage.loadingPageSuccessful());
     }
     @DataProvider(name = "Data-Main-Page")
     public  static Object[][] dataForMainPage (){
@@ -46,14 +46,14 @@ public class SmokeTest extends WebDriverSettings {
 
 
 
-    @Test(dataProvider = "Data-Result-Page")
-    public void s2(String c1, String c2, String d1, String d2){
+    @Test(dataProvider = "dataForResultPage")
+    public void goFromResultsPageToBookingPage(String c1, String c2, String d1, String d2){
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
-        Assert.assertTrue(bookingPage.successfulLoading());
+        Assert.assertTrue(bookingPage.loadingPageSuccessful());
     }
     @DataProvider(name = "Data-Result-Page")
-    public  static Object[][] dataForREsultPage (){
+    public  static Object[][] dataForResultPage(){
         return new Object[][]{
                 new String[]{"Самара", "Москва", "12122020", "14122020"}
         };
@@ -62,14 +62,15 @@ public class SmokeTest extends WebDriverSettings {
 
 
     @Test(dataProvider = "Data-Booking-Page")
-    public void s3(String c1,String c2, String d1, String d2,
-                   String email, String phone,
-                   String passport, String lastName, String firstName, String patronymic, String birthday) {
+    public void fillBookingPageFieldsAndGoToPayment(String c1, String c2, String d1, String d2,
+                                                    String email, String phone,
+                                                    String passport, String lastName, String firstName,
+                                                    String patronymic, String birthday) {
         generalPart.step1(c1,c2,d1,d2);
         generalPart.step2();
         generalPart.step3(email,phone,passport,lastName,firstName,patronymic,birthday);
 
-        Assert.assertTrue(paymentPage.successfulLoading());
+        Assert.assertTrue(paymentPage.loadingPageSuccessful());
     }
     @DataProvider(name = "Data-Booking-Page")
     public  static Object[][] dataForBookingPage (){

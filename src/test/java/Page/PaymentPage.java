@@ -12,7 +12,7 @@ public class PaymentPage {
     public WebDriver driver;
 
     @FindBy(css = "div.AviaCheckout")
-    private WebElement paymentForm;
+    private WebElement formPayment;
 
     public PaymentPage(WebDriver driver) {
         this.driver = driver;
@@ -21,10 +21,10 @@ public class PaymentPage {
 
 
     @Step(value = "Loading")
-    public boolean successfulLoading() {
+    public boolean loadingPageSuccessful() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOf(paymentForm));
+            wait.until(ExpectedConditions.visibilityOf(formPayment));
             return true;
         }catch (Exception e){
             return false;
